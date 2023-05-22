@@ -38,7 +38,7 @@ To get started, follow the steps below:
 1. Clone this repo & install dependencies
 
 ```
-git clone https://github.com/KnoxSamuel/CS46X_ETH_SMART_CONTRACTS_scaffolding.git
+git clone https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding.git
 cd cs46x-eth-smart-contracts-scaffolding
 yarn install
 ```
