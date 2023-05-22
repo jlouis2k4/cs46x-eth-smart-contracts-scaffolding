@@ -39,7 +39,7 @@ To get started, follow the steps below:
 
 ```
 git clone https://github.com/KnoxSamuel/CS46X_ETH_SMART_CONTRACTS_scaffolding.git
-cd cs46x_eth_smart_contracts_scaffolding
+cd cs46x-eth-smart-contracts-scaffolding
 yarn install
 ```
 
