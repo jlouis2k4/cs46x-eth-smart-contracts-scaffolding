@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "description": "The front-end implementation for our Blockchain-based Smart Contracts for Infrastructure Funding Capstone Project. Based on the scaffold-eth-2 toolkit.",
-    "repository": "https://github.com/KnoxSamuel/CS46X_ETH_SMART_CONTRACTS_scaffolding.git",
+    "repository": "https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding.git",
     "author": "Samuel Knox",
     "license": "MIT",
     "workspaces": {

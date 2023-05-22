@@ -14,7 +14,7 @@ contract Project {
     ) {
         creator = payable(_creator);
         minimumContribution = _minimumContribution;
-        deadline = _deadline;
+        deadline = _deadline + block.timestamp;
         targetContribution = _targetContribution;
         projectTitle = _projectTitle;
         projectDesc = _projectDesc;
@@ -255,7 +255,7 @@ contract Project {
     //      Changes project state to Expired if deadline has passed.
     // @return null
     function checkFundingCompleteOrExpire() internal {
-        if (raisedAmount >= targetContribution) {
+        if (raisedAmount >= targetContribution) {										// TODO-DEBUG: It seems that `state` is getting set to `Successful` (State[2]) after one contribution of any amount
             state = State.Successful;
         } else if (block.timestamp > deadline) {
             state = State.Expired;

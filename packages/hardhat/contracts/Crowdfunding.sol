@@ -63,7 +63,8 @@ contract Crowdfunding {
     ) 
         public
     {
-        require(deadline > block.timestamp, "Deadline must be in the future");
+        //require(deadline > block.timestamp, "Deadline must be in the future");
+		deadline = deadline + block.timestamp;
 
         Project newProject = new Project (
             msg.sender,
