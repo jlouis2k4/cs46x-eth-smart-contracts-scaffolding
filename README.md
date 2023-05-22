@@ -46,16 +46,17 @@ yarn install
 2. Run a local network in the first terminal:
 
 ```
-yarn chain // starts local Ethereum blockchain w/ Hardhat. The network runs on your local machine for testing and development. Customize network configuration in `hardhat.config.ts`.
+yarn chain 
 ```
+This starts a local Ethereum blockchain w/ Hardhat. The network runs on your local machine for testing and development. Customize network configuration in `hardhat.config.ts`.
 
 3. On a second terminal, deploy the contracts:
 
 ```
-yarn deploy // deploys to specified network, default: localhost
+yarn deploy // default network: localhost
 ```
 
-This command deploys the smart contracts to the local network. Contracts are located in `packages/hardhat/contracts`. The `yarn deploy` command uses the customized deploy scripts in `packages/hardhat/deploy` to deploy the contract to the network.
+This command deploys the smart contracts (located in `packages/hardhat/contracts`) to the local network. The `yarn deploy` command uses the customized deploy scripts in `packages/hardhat/deploy` to deploy the contract to the network.
 
 4. On a third terminal, start the NextJS app:
 
@@ -63,11 +64,14 @@ This command deploys the smart contracts to the local network. Contracts are loc
 yarn start
 ```
 
-Visit the app on: `http://localhost:3000`. You can interact with your smart contract using the contract components or the basic ui in the frontend. You can configure the app config in `packages/nextjs/scaffold.config.ts`.
+Visit the app on: `http://localhost:3000`. You can interact with your smart contract using the contract components or the basic frontend ui. You can configure the app config in `packages/nextjs/scaffold.config.ts`.
 
 Run smart contract test with `yarn hardhat:test`
 
-- Edit contracts in `packages/hardhat/contracts`
+- 
+
+
+contracts in `packages/hardhat/contracts`
 - Edit frontend in `packages/nextjs/pages`
 - Edit deployment scripts in `packages/hardhat/deploy`
 
