@@ -71,7 +71,6 @@ Based on the scaffold-eth-2 toolkit, an open-source, up-to-date all-in-one testi
 Before you begin, you need to install the following tools:
 
 - [Metamask Extension](https://metamask.io/download/)
-- [Alchemy-Web3](https://www.npmjs.com/package/@alch/alchemy-web3)
 - [Node (v18 LTS)](https://nodejs.org/en/download/)
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - [Git](https://git-scm.com/downloads)
