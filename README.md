@@ -18,19 +18,28 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 ![image](https://github.com/michaelgadda/CS46X_ETH_SMART_CONTRACTS/assets/62987541/252b31f7-fc98-426d-9686-4f0b7ff2e7d6)
 
 # Roadmap
+
   ○ Done so Far:
+  
   ○ Design project protocol + token requirements & develop our dApp.
+  
   ○ Implement protocols for the lending process between lenders & public contractors.
+  
   ○ Model how retail investors will receive incentives from providing liquidity to a loan pool.
+  
   ○ Integrate loan terms (repayment schedule, interest, & more)
+  
   ○ Refine our very simple dApp user interface
 
 # Future Milestones:
-  ■ Tokens can be transacted through our dApp network to access certain tolled infrastructure (i.e. road tolls, bridges, ferries, etc).
-  ■ Integrate additional DeFi loan protocols
-  ■ Explore tokenomic models & bonding curves
-  ■ Implement cross-chain investment bridge protocols
 
+  ■ Tokens can be transacted through our dApp network to access certain tolled infrastructure (i.e. road tolls, bridges, ferries, etc).
+  
+  ■ Integrate additional DeFi loan protocols
+  
+  ■ Explore tokenomic models & bonding curves
+  
+  ■ Implement cross-chain investment bridge protocols
 
 Based on the scaffold-eth-2 toolkit, an open-source, up-to-date all-in-one testing/deployment framework for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
