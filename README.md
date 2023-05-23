@@ -14,14 +14,13 @@ Based on the scaffold-eth-2 toolkit, an open-source, up-to-date all-in-one testi
 
 - [Requirements](#requirements)
 - [Quickstart](#quickstart)
-- [Deploying your Smart Contracts to a Live Network](#deploying-your-smart-contracts-to-a-live-network)
+- [Deploying your Smart Contracts to a Live Network](#deploying-smart-contracts-to-a-live-network)
 - [Deploying your NextJS App](#deploying-your-nextjs-app)
-- [Interacting with your Smart Contracts: SE-2 Custom Hooks](#interacting-with-your-smart-contracts-se-2-custom-hooks)
+- [Interacting with your Smart Contracts: SE-2 Custom Hooks](#interacting-with-the-smart-contracts:-scaffold-eth-2-custom-hooks)
 - [Disabling Type & Linting Error Checks](#disabling-type-and-linting-error-checks)
   - [Disabling commit checks](#disabling-commit-checks)
   - [Deploying to Vercel without any checks](#deploying-to-vercel-without-any-checks)
   - [Disabling Github Workflow](#disabling-github-workflow)
-- [Contributing to Scaffold-ETH 2](#contributing-to-scaffold-eth-2)
 
 ## Requirements
 
