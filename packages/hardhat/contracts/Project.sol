@@ -72,14 +72,14 @@ contract Project {
 
     // Events
 
-    // Event that will be emitted whenever funding will be received
+    // Event that will be emitted whenever funding transaction is received
     event FundingReceived(
         address contributor,
         uint256 amount,
         uint256 currentTotal
     );
 
-    // Event that will be emitted whenever withdraw request created
+    // Event that will be emitted whenever a withdraw request is created by the project owner
     event WithdrawRequestCreated(
         uint256 requestId,
         string description,
@@ -89,10 +89,10 @@ contract Project {
         address recipient
     );
 
-    // Event that will be emitted whenever contributor vote for withdraw request
+    // Event that will be emitted whenever a contributor votes for a withdraw request
     event WithdrawVote(address voter, uint256 totalVote);
 
-    // Event that will be emitted whenever contributor vote for withdraw request
+    // Event that will be emitted whenever an approved withdraw request is sent to owner
     event AmountWithdrawSuccessful(
         uint256 requestId,
         string description,
@@ -119,7 +119,7 @@ contract Project {
         contributors[_contributor] += msg.value;
         raisedAmount += msg.value;
         emit FundingReceived(_contributor, msg.value, raisedAmount);
-        checkFundingCompleteOrExpire();
+        checkFundingCompleteOrExpired();
     }
 
     // @dev Get the contract's current balance.
@@ -250,16 +250,18 @@ contract Project {
     }
 
     // Internal Functions
-
+    // TODO-DEBUG: It seems that `state` is getting set to `Successful` (State[2]) after one contribution of any amount
     // @dev Changes project state to Successful if raisedAmount exceeds goal.
     //      Changes project state to Expired if deadline has passed.
     // @return null
-    function checkFundingCompleteOrExpire() internal {
-        if (raisedAmount >= targetContribution) {										// TODO-DEBUG: It seems that `state` is getting set to `Successful` (State[2]) after one contribution of any amount
+    function checkFundingCompleteOrExpired() internal {
+        if (raisedAmount >= targetContribution) {	// if the project has raised enough funds
+            completedAt = block.timestamp;
             state = State.Successful;
-        } else if (block.timestamp > deadline) {
+        } else if (block.timestamp > deadline) { // if current time has passed the deadline
+            completedAt = block.timestamp;
             state = State.Expired;
         }
-        completedAt = block.timestamp;
+        //completedAt = block.timestamp;
     }
 }
