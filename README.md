@@ -17,6 +17,10 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 
 ![image](https://github.com/michaelgadda/CS46X_ETH_SMART_CONTRACTS/assets/62987541/252b31f7-fc98-426d-9686-4f0b7ff2e7d6)
 
+# Demo Project Funding Request
+
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/c2514e39-bdc0-4e97-b990-0d07bb95fc28)
+
 # Roadmap
 
   ○ Done so Far:
