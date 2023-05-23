@@ -48,7 +48,7 @@ contract Crowdfunding {
             msg.value >= minContributionAmount,
             "Contribution amount is too low!"
         );
-        Project(_projectAddress).contribute{value: msg.value}(msg.sender); // Send contribution to projectAddress
+        Project(_projectAddress).contribute{value: msg.value}(msg.sender); // Send fund txn to _projectAddress
         emit ContributionReceived(_projectAddress, msg.value, msg.sender); // Trigger logging event
     }
 
@@ -63,8 +63,8 @@ contract Crowdfunding {
     ) 
         public
     {
-        //require(deadline > block.timestamp, "Deadline must be in the future");
 		deadline = deadline + block.timestamp;
+        //require(deadline > block.timestamp, "Deadline must be in the future");
 
         Project newProject = new Project (
             msg.sender,

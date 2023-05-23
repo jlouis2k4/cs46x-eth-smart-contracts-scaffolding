@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ethereum Dapp</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.3.4/dist/web3.min.js"></script>
+</head>
+<body>
+    <h2>Create User</h2>
+    <input id="firstname" type="text" placeholder="First Name">
+    <input id="lastname" type="text" placeholder="Last Name">
+    <input id="infName" type="text" placeholder="Infrastructure Name">
+    <button id="addUser" onClick="addUserToDatabase()">Add User</button>
+
+
+    <h2>Add Infrastructure</h2>
+    <input id="infWallet" type="text" placeholder="Infrastructure Wallet Address">
+    <input id="infName" type="text" placeholder="Infrastructure Name">
+    <input id="member_type1_cost" type="number" placeholder="Member Type 1 Cost">
+    <input id="member_type2_cost" type="number" placeholder="Member Type 2 Cost">
+    <input id="member_type3_cost" type="number" placeholder="Member Type 3 Cost">
+    <input id="member_type1_threshold" type="number" placeholder="Member Type 1 Threshold">
+    <input id="member_type2_threshold" type="number" placeholder="Member Type 2 Threshold">
+    <input id="member_type3_threshold" type="number" placeholder="Member Type 3 Threshold">
+    <button onclick="callAddInfStructure()">Add Infrastructure</button>
+
+    <h2>Events</h2>
+    <div id="CreateAccount"></div>
+
+    <h2>All Infrastructure Array Items</h2>
+    <button onclick="getAllInfArrayItems()">Get All</button>
+    <div id="getAllInfArrayItemsResult"></div>
+
+
+    <form onsubmit="event.preventDefault(); findInfWallet(document.getElementById('infNameToFind').value);">
+        <label for="infNameToFind">Infrastructure Name:</label><br>
+        <input type="text" id="infNameToFind" name="infNameToFind"><br>
+        <input type="submit" value="Find Infrastructure Wallet">
+    </form>
+    
+    <p id="findInfWalletResult"></p>
+
+    <h2>All Individual Users Array Items</h2>
+    <button onclick="getAllIndUsersArrayItems()">Get All</button>
+    <div id="getAllIndUsersArrayItemsResult"></div>
+
+
+    <script src="toll.js"></script>
+</body>
+</html>
+

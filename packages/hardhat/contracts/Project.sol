@@ -53,7 +53,7 @@ contract Project {
     mapping(address => uint256) public contributors;
     mapping(uint256 => WithdrawRequest) public withdrawRequests;
 
-    uint256 public numOfWithdrawRequests = 0;
+    uint256 public noOfWithdrawRequests = 0;
 
     // Modifiers
     modifier isCreator() {
@@ -172,7 +172,7 @@ contract Project {
         return true;
     }
 
-    // @dev Project owner must request contributors to withdraw some amount.
+    // @dev Project funding must be complete & owner must request contributors to withdraw some amount.
     // @return null
     function createWithdrawRequest(
         string memory _description,
@@ -186,9 +186,9 @@ contract Project {
         require(_amount <= getContractBalance(), "Requested amount exceeds contract balance");
 
         WithdrawRequest storage newRequest = withdrawRequests[
-            numOfWithdrawRequests
+            noOfWithdrawRequests
         ];
-        numOfWithdrawRequests++;
+        noOfWithdrawRequests++;
 
         newRequest.description = _description;
         newRequest.amount = _amount;
@@ -197,7 +197,7 @@ contract Project {
         newRequest.recipient = _recipient;
 
         emit WithdrawRequestCreated(
-            numOfWithdrawRequests,
+            noOfWithdrawRequests,
             _description,
             _amount,
             0,
