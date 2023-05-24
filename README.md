@@ -17,21 +17,35 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 
 ![image](https://github.com/michaelgadda/CS46X_ETH_SMART_CONTRACTS/assets/62987541/252b31f7-fc98-426d-9686-4f0b7ff2e7d6)
 
+# Demo Project Funding Request
+
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/c2514e39-bdc0-4e97-b990-0d07bb95fc28)
+
 # Roadmap
+
   ○ Done so Far:
+  
   ○ Design project protocol + token requirements & develop our dApp.
+  
   ○ Implement protocols for the lending process between lenders & public contractors.
+  
   ○ Model how retail investors will receive incentives from providing liquidity to a loan pool.
+  
   ○ Integrate loan terms (repayment schedule, interest, & more)
+  
   ○ Refine our very simple dApp user interface
 
 # Future Milestones:
+
   ■ Tokens can be transacted through our dApp network to access certain tolled infrastructure (i.e. road tolls, bridges, ferries, etc).
+  
   ■ Integrate additional DeFi loan protocols
+  
   ■ Explore tokenomic models & bonding curves
+  
   ■ Implement cross-chain investment bridge protocols
 
-
+# Toolkit / Framework
 Based on the scaffold-eth-2 toolkit, an open-source, up-to-date all-in-one testing/deployment framework for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
@@ -57,7 +71,6 @@ Based on the scaffold-eth-2 toolkit, an open-source, up-to-date all-in-one testi
 Before you begin, you need to install the following tools:
 
 - [Metamask Extension](https://metamask.io/download/)
-- [Alchemy-Web3](https://www.npmjs.com/package/@alch/alchemy-web3)
 - [Node (v18 LTS)](https://nodejs.org/en/download/)
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - [Git](https://git-scm.com/downloads)
