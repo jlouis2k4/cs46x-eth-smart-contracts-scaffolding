@@ -59,14 +59,14 @@ contract Project {
     modifier isCreator() {
         require(
             msg.sender == creator,
-            "You dont have access to perform this operation !"
+            "You don't have access to perform this operation!"
         );
         _;
     }
 
     modifier isNotExpired(State _state) {
-        require(state == _state, "Invalid state");
-        require(block.timestamp < deadline, "Deadline has passed !");
+        require(state == _state, "Invalid state!");
+        require(block.timestamp < deadline, "Deadline has passed!");
         _;
     }
 
@@ -183,7 +183,7 @@ contract Project {
         isCreator
         isNotExpired(State.Successful)
     {
-        require(_amount <= getContractBalance(), "Requested amount exceeds contract balance");
+        require(_amount <= getContractBalance(), "Requested amount exceeds contract balance!");
 
         WithdrawRequest storage newRequest = withdrawRequests[
             noOfWithdrawRequests
@@ -236,8 +236,8 @@ contract Project {
             requestDetails.noOfVotes >= (noOfContributers * 2) / 3,
             "More than 66% of contributors need to approve this request."
         );
-        requestDetails.recipient.transfer(requestDetails.amount);
         requestDetails.isApproved = true;
+        requestDetails.recipient.transfer(requestDetails.amount);
 
         emit AmountWithdrawSuccessful(
             _requestId,
@@ -250,6 +250,7 @@ contract Project {
     }
 
     // Internal Functions
+    
     // TODO-DEBUG: It seems that `state` is getting set to `Successful` (State[2]) after one contribution of any amount
     // @dev Changes project state to Successful if raisedAmount exceeds goal.
     //      Changes project state to Expired if deadline has passed.
