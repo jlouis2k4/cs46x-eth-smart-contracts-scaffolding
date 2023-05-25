@@ -89,7 +89,7 @@ contract Project {
     );
 
     // Event that will be emitted whenever a contributor votes for a withdraw request
-    event WithdrawVote(address voter, uint256 totalVote);
+    event WithdrawRequestVote(address voter, uint256 totalVote);
 
     // Event that will be emitted whenever an approved withdraw request is sent to owner
     event AmountWithdrawSuccessful(
@@ -207,7 +207,10 @@ contract Project {
     // @dev Contributors are allowed to vote once for each WithdrawRequest.
     // @return null
     function voteWithdrawRequest(uint256 _requestId) public {
-        require(contributors[msg.sender] > 0, "Only contributors are allowed to vote on WithdrawRequests!");
+        require(
+            contributors[msg.sender] > 0,
+            "Only contributors are allowed to vote on WithdrawRequests!"
+        );
         WithdrawRequest storage requestDetails = withdrawRequests[_requestId];
         require(
             requestDetails.voters[msg.sender] == false,
@@ -215,7 +218,7 @@ contract Project {
         );
         requestDetails.voters[msg.sender] = true;
         requestDetails.noOfVotes += 1;
-        emit WithdrawVote(msg.sender, requestDetails.noOfVotes);
+        emit WithdrawRequestVote(msg.sender, requestDetails.noOfVotes);
     }
 
     // @dev Owner can withdraw the requested amount after quorum is met.
@@ -249,7 +252,9 @@ contract Project {
 
     // Internal Functions
     
-    // TODO-DEBUG: It seems that `state` is getting set to `Successful` (State[2]) after one contribution of any amount
+    // TODO-DEBUG: It seems that `state` is getting set to `Successful` (State[2]) 
+    //              after one contribution of any amount
+
     // @dev Changes project state to Successful if raisedAmount exceeds goal.
     //      Changes project state to Expired if deadline has passed.
     // @return null
