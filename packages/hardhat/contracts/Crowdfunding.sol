@@ -4,8 +4,8 @@ pragma solidity >=0.8.9 < 0.9.0;
 import "./Project.sol";
 
 contract Crowdfunding {
-    // @dev Initializes a project
-    // @return null
+    /// @dev Initializes a project
+    /// @return null
     event ProjectCreation(
         address projectContractAddress,
         address creator,
@@ -29,16 +29,16 @@ contract Crowdfunding {
 
     // External functions
 
-    // @dev Get list of projects
-    // @return array
+    /// @dev Get list of projects
+    /// @return array
     function returnAllProjects() external view returns (Project[] memory) {
         return projects;
     }
 
     // Public functions
 
-    // @dev Anyone can contribute to a project
-    // @return null
+    /// @dev Anyone can contribute to a project
+    /// @return null
     function contribute(address _projectAddress) public payable {
         uint256 minContributionAmount = Project(_projectAddress)
             .minimumContribution();
@@ -52,8 +52,8 @@ contract Crowdfunding {
         emit ContributionReceived(_projectAddress, msg.value, msg.sender); // Trigger logging event
     }
 
-    // @dev Anyone is allowed to create a project funding request
-    // @return null
+    /// @dev Anyone is allowed to create a project funding request
+    /// @return null
     function createProject (
         uint256 minimumContribution,
         uint256 deadline,

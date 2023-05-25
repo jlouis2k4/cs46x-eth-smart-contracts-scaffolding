@@ -1,9 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.9 < 0.9.0;
 
-contract Project {
-    // @dev Initializes project information // MAKE ABSTRACT CONTRACT??
-    // @return null
+import "node_modules/@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+
+contract Project is AccessControlEnumerable {
+    /// @dev Initializes project information
+    /// @return null
     constructor(
         address _creator,
         uint256 _minimumContribution,
@@ -103,8 +105,8 @@ contract Project {
 
     // Public Functions
 
-    // @dev Any user can contribute to a project.
-    // @return null
+    /// @dev Any user can contribute to a project.
+    /// @return null
     function contribute(address _contributor) public payable atState(State.Open) {
         require(
             msg.value >= minimumContribution,
@@ -121,14 +123,14 @@ contract Project {
         checkFundingCompleteOrExpired();
     }
 
-    // @dev Get the contract's current balance.
-    // @return uint
+    /// @dev Get the contract's current balance.
+    /// @return uint
     function getContractBalance() public view returns (uint256) {
         return address(this).balance;
     }
 
-    // @dev Get contract information.
-    // @return Project's initial information + timeofCompletion, currentAmount, currentState, balance.
+    /// @dev Get contract information.
+    /// @return Project's initial information + timeofCompletion, currentAmount, currentState, balance.
     function getProjectDetails()
         public
         view
@@ -157,8 +159,8 @@ contract Project {
         balance = address(this).balance;
     }
 
-    // @dev Contributors can get refund if a project ends before reaching goal.
-    // @return boolean
+    /// @dev Contributors can get refund if a project ends before reaching goal.
+    /// @return boolean
     function requestRefund() public atState(State.Expired) returns (bool) {
         require(
             contributors[msg.sender] > 0,
@@ -170,8 +172,8 @@ contract Project {
         return true;
     }
 
-    // @dev Project funding must be complete & owner must request contributors to withdraw some amount.
-    // @return null
+    /// @dev Project funding must be complete & owner must request contributors to withdraw some amount.
+    /// @return null
     function createWithdrawRequest(
         string memory _description,
         uint256 _amount,
@@ -204,8 +206,8 @@ contract Project {
         );
     }
 
-    // @dev Contributors are allowed to vote once for each WithdrawRequest.
-    // @return null
+    /// @dev Contributors are allowed to vote once for each WithdrawRequest.
+    /// @return null
     function voteWithdrawRequest(uint256 _requestId) public {
         require(
             contributors[msg.sender] > 0,
@@ -221,8 +223,8 @@ contract Project {
         emit WithdrawRequestVote(msg.sender, requestDetails.noOfVotes);
     }
 
-    // @dev Owner can withdraw the requested amount after quorum is met.
-    // @return null
+    /// @dev Owner can withdraw the requested amount after quorum is met.
+    /// @return null
     function withdrawRequestedAmount(uint256 _requestId)
         public
         isCreator
@@ -252,12 +254,10 @@ contract Project {
 
     // Internal Functions
     
-    // TODO-DEBUG: It seems that `state` is getting set to `Successful` (State[2]) 
-    //              after one contribution of any amount
+    // TODO-DEBUG: Seems that project state is set to `Successful` after one contribution
 
-    // @dev Changes project state to Successful if raisedAmount exceeds goal.
-    //      Changes project state to Expired if deadline has passed.
-    // @return null
+    /// @dev Sets project state if expired or funded
+    /// @return null
     function checkFundingCompleteOrExpired() internal {
         if (raisedAmount >= targetContribution) {	// if the project has raised enough funds
             completedAt = block.timestamp;
