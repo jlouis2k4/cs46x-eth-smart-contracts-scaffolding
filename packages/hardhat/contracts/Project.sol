@@ -2,7 +2,7 @@
 pragma solidity >=0.8.9 < 0.9.0;
 
 contract Project {
-    // @dev Initializes project information
+    // @dev Initializes project information // MAKE ABSTRACT CONTRACT??
     // @return null
     constructor(
         address _creator,
@@ -64,9 +64,8 @@ contract Project {
         _;
     }
 
-    modifier isNotExpired(State _state) {
+    modifier atState(State _state) {
         require(state == _state, "Invalid state!");
-        require(block.timestamp < deadline, "Deadline has passed!");
         _;
     }
 
@@ -106,7 +105,7 @@ contract Project {
 
     // @dev Any user can contribute to a project.
     // @return null
-    function contribute(address _contributor) public payable isNotExpired(State.Open) {
+    function contribute(address _contributor) public payable atState(State.Open) {
         require(
             msg.value >= minimumContribution,
             "Contribution amount is too low!"
@@ -160,15 +159,14 @@ contract Project {
 
     // @dev Contributors can get refund if a project ends before reaching goal.
     // @return boolean
-    function requestRefund() public isNotExpired(State.Expired) returns (bool) {
+    function requestRefund() public atState(State.Expired) returns (bool) {
         require(
             contributors[msg.sender] > 0,
             "You don't have any assets contributed to this project!"
         );
-        address payable user = payable(msg.sender);
         uint256 refundAmount = contributors[msg.sender]; // this prevents against reentrancy attacks
         contributors[msg.sender] = 0; 
-        user.transfer(refundAmount);
+        payable(msg.sender).transfer(refundAmount);
         return true;
     }
 
@@ -178,10 +176,10 @@ contract Project {
         string memory _description,
         uint256 _amount,
         address payable _recipient
-    ) 
+    )
         public
         isCreator
-        isNotExpired(State.Successful)
+        atState(State.Successful)
     {
         require(_amount <= getContractBalance(), "Requested amount exceeds contract balance!");
 
@@ -225,7 +223,7 @@ contract Project {
     function withdrawRequestedAmount(uint256 _requestId)
         public
         isCreator
-        isNotExpired(State.Successful)
+        atState(State.Successful)
     {
         WithdrawRequest storage requestDetails = withdrawRequests[_requestId];
         require(
