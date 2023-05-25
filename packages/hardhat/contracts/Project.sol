@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.9 < 0.9.0;
 
-import "node_modules/@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+import "../node_modules/@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+
+bytes32 constant CREDITOR = keccak256("CREDITOR");
+bytes32 constant END_USER = keccak256("END_USER");
 
 contract Project is AccessControlEnumerable {
     /// @dev Initializes project information
-    /// @return null
     constructor(
         address _creator,
         uint256 _minimumContribution,
@@ -21,6 +23,8 @@ contract Project is AccessControlEnumerable {
         projectTitle = _projectTitle;
         projectDesc = _projectDesc;
         raisedAmount = 0;
+
+        AccessControlEnumerable._grantRole(DEFAULT_ADMIN_ROLE, creator);
     }
 
     // Project State
@@ -106,7 +110,6 @@ contract Project is AccessControlEnumerable {
     // Public Functions
 
     /// @dev Any user can contribute to a project.
-    /// @return null
     function contribute(address _contributor) public payable atState(State.Open) {
         require(
             msg.value >= minimumContribution,
@@ -130,7 +133,16 @@ contract Project is AccessControlEnumerable {
     }
 
     /// @dev Get contract information.
-    /// @return Project's initial information + timeofCompletion, currentAmount, currentState, balance.
+    /// @return projectOwner 
+    /// @return minContribution 
+    /// @return projectDeadline 
+    /// @return goalAmount 
+    /// @return timeOfCompletion 
+    /// @return currentAmount 
+    /// @return title 
+    /// @return desc 
+    /// @return currentState 
+    /// @return balance 
     function getProjectDetails()
         public
         view
@@ -173,7 +185,9 @@ contract Project is AccessControlEnumerable {
     }
 
     /// @dev Project funding must be complete & owner must request contributors to withdraw some amount.
-    /// @return null
+    /// @param _description Memo attached to request
+    /// @param _amount The amount of ETH owner requested
+    /// @param _recipient The address where owner wants withdrawal 
     function createWithdrawRequest(
         string memory _description,
         uint256 _amount,
@@ -207,7 +221,7 @@ contract Project is AccessControlEnumerable {
     }
 
     /// @dev Contributors are allowed to vote once for each WithdrawRequest.
-    /// @return null
+    /// @param _requestId Index of the withdraw request
     function voteWithdrawRequest(uint256 _requestId) public {
         require(
             contributors[msg.sender] > 0,
@@ -224,7 +238,7 @@ contract Project is AccessControlEnumerable {
     }
 
     /// @dev Owner can withdraw the requested amount after quorum is met.
-    /// @return null
+    /// @param _requestId Index of the withdraw request
     function withdrawRequestedAmount(uint256 _requestId)
         public
         isCreator
@@ -254,10 +268,8 @@ contract Project is AccessControlEnumerable {
 
     // Internal Functions
     
-    // TODO-DEBUG: Seems that project state is set to `Successful` after one contribution
-
+    /// @dev TODO-DEBUG: Seems that project state is set to `Successful` after one contribution
     /// @dev Sets project state if expired or funded
-    /// @return null
     function checkFundingCompleteOrExpired() internal {
         if (raisedAmount >= targetContribution) {	// if the project has raised enough funds
             completedAt = block.timestamp;

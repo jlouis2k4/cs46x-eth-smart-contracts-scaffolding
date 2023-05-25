@@ -38,7 +38,7 @@ contract Crowdfunding {
     // Public functions
 
     /// @dev Anyone can contribute to a project
-    /// @return null
+    /// @param _projectAddress The project address where funds are deposited
     function contribute(address _projectAddress) public payable {
         uint256 minContributionAmount = Project(_projectAddress)
             .minimumContribution();
@@ -53,14 +53,18 @@ contract Crowdfunding {
     }
 
     /// @dev Anyone is allowed to create a project funding request
-    /// @return null
+    /// @param minimumContribution Minumum accepted ETH per transaction
+    /// @param deadline Amount of seconds until the project stops accepting investments
+    /// @param targetContribution Amount of ETH the project requires to start development
+    /// @param projectTitle Title of infrastructure project
+    /// @param projectDesc Description of infrastructure project
     function createProject (
         uint256 minimumContribution,
         uint256 deadline,
         uint256 targetContribution,
         string memory projectTitle,
         string memory projectDesc
-    ) 
+    )
         public
     {
 		deadline += block.timestamp;
