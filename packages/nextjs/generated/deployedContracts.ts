@@ -5,7 +5,7 @@ const contracts = {
       chainId: "31337",
       contracts: {
         Crowdfunding: {
-          address: "0x2279B7A0a67DB372996a5FaB50D91eAA73d2eBe6",
+          address: "0x3Aa5ebB10DC797CAC828524e59A333d0A371443c",
           abi: [
             {
               anonymous: false,
@@ -161,7 +161,7 @@ const contracts = {
           ],
         },
         Project: {
-          address: "0x8A791620dd6260079BF849Dc5567aDC3F2FdC318",
+          address: "0xc6e7DF5E7b4f2A278906862b61205850344D4e7d",
           abi: [
             {
               inputs: [

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.9 < 0.9.0;
 
-import "../node_modules/@openzeppelin/contracts/access/AccessControlEnumerable.sol";
+import {AccessControlEnumerable} from "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 
-bytes32 constant CREDITOR = keccak256("CREDITOR");
-bytes32 constant END_USER = keccak256("END_USER");
+bytes32 constant CREDITOR = keccak256("CREDITOR"); //0xcc20a4f09ce3d2c408dc66f828762d80f08534a1cab249f5b63f81750890f4e3
+bytes32 constant END_USER = keccak256("END_USER"); //0xf7cea1877766b75e590cddc6205fa80d6ad49a9b2a8f34843a3ae02d1ec9d7c5
 
 contract Project is AccessControlEnumerable {
     /// @dev Initializes project information
@@ -118,6 +118,10 @@ contract Project is AccessControlEnumerable {
 
         if (contributors[_contributor] == 0) {
             noOfContributers++;
+            AccessControlEnumerable._grantRole(END_USER, _contributor);
+        }
+        if (msg.value >= 100 ether) {
+            AccessControlEnumerable._grantRole(CREDITOR, _contributor);
         }
 
         contributors[_contributor] += msg.value;
@@ -174,6 +178,7 @@ contract Project is AccessControlEnumerable {
     /// @dev Contributors can get refund if a project ends before reaching goal.
     /// @return boolean
     function requestRefund() public atState(State.Expired) returns (bool) {
+        require(hasRole(END_USER, msg.sender));
         require(
             contributors[msg.sender] > 0,
             "You don't have any assets contributed to this project!"
@@ -197,6 +202,7 @@ contract Project is AccessControlEnumerable {
         isCreator
         atState(State.Successful)
     {
+        require(hasRole(DEFAULT_ADMIN_ROLE, msg.sender));
         require(_amount <= getContractBalance(), "Requested amount exceeds contract balance!");
 
         WithdrawRequest storage newRequest = withdrawRequests[
@@ -223,9 +229,11 @@ contract Project is AccessControlEnumerable {
     /// @dev Contributors are allowed to vote once for each WithdrawRequest.
     /// @param _requestId Index of the withdraw request
     function voteWithdrawRequest(uint256 _requestId) public {
+        require(!hasRole(DEFAULT_ADMIN_ROLE, msg.sender)); // owner can't vote on their project
+        require(hasRole(CREDITOR, msg.sender)); // only "big" lenders (contributed >100ETH in one txn) can vote on withdraw requests
         require(
-            contributors[msg.sender] > 0,
-            "Only contributors are allowed to vote on WithdrawRequests!"
+            contributors[msg.sender] > 100 ether,
+            "Only CREDITORS are allowed to vote on WithdrawRequests!"
         );
         WithdrawRequest storage requestDetails = withdrawRequests[_requestId];
         require(
@@ -244,14 +252,16 @@ contract Project is AccessControlEnumerable {
         isCreator
         atState(State.Successful)
     {
+        require(hasRole(DEFAULT_ADMIN_ROLE, msg.sender));
         WithdrawRequest storage requestDetails = withdrawRequests[_requestId];
         require(
             requestDetails.isApproved == false,
             "This withdrawal request was already approved."
         );
+        require(requestDetails.noOfVotes > 0, "No CREDITOR has voted for this request.");
         require(
             requestDetails.noOfVotes >= (noOfContributers * 2) / 3,
-            "More than 66% of contributors need to approve this request."
+            "More than 66% of CREDITORS need to approve this request."
         );
         requestDetails.isApproved = true;
         requestDetails.recipient.transfer(requestDetails.amount);
