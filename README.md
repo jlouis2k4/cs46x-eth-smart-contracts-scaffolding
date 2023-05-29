@@ -12,6 +12,7 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
   - Project.sol: manages a specific projects current information (view the .sol file for datatypes & variables)
 - The front-end interface is at `packages/nextjs/pages`
 - Contracts were deployed via hardhat w/ scripts in `packages/hardhat/deploy`
+- [QUICKSTART GUIDE](#quickstart)
 
 # Architecture Diagram
 

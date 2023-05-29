@@ -26,9 +26,9 @@ const deployProject: DeployFunction = async function (hre: HardhatRuntimeEnviron
     // Contract constructor arguments
     args: [
       deployer,
-      (1 * 10) ^ 14,
-      2419200,
-      (1000 * (1 * 10)) ^ 18,
+      (1 * 10) ^ 14, // 0.01 eth
+      2419200, // month in seconds
+      (1000 * (1 * 10)) ^ 18, // wei, 10^18 wei = 1 eth
       "SomePublicProject",
       "ABlockchainInfrastructureProjectFund.",
     ],
