@@ -12,7 +12,7 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
   - Project.sol: manages a specific projects current information (view the .sol file for datatypes & variables)
 - The front-end interface is at `packages/nextjs/pages`
 - Contracts were deployed via hardhat w/ scripts in `packages/hardhat/deploy`
-- [QUICKSTART GUIDE](#quickstart)
+- [SKIP TO QUICKSTART GUIDE](#scaffold-eth-2-toolkit)
 
 # Architecture Diagram
 
@@ -46,8 +46,8 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
   
   ■ Implement cross-chain investment bridge protocols
 
-# Toolkit / Framework
-Based on the scaffold-eth-2 toolkit, an open-source, up-to-date all-in-one testing/deployment framework for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+# [Scaffold Toolkit + Framework](#scaffold-eth-2-toolkit)
+Based on the [scaffold-eth-2 toolkit](https://github.com/scaffold-eth/scaffold-eth-2), an open-source, up-to-date all-in-one testing/deployment framework for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts. Documentation is also available online [here](https://docs.scaffoldeth.io/scaffold-eth/).
 
 ⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
 
