@@ -12,9 +12,42 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 - Contracts were deployed via hardhat w/ scripts in `packages/hardhat/deploy`
 - [SKIP TO QUICKSTART GUIDE FOR SCAFFOLD FRAMEWORK](https://github.com/scaffold-eth/scaffold-eth-2)
 
-# Architecture Diagram
+# How to run the project
+Run this in project folder
 
+1. npm init -y
+
+2. npm install
+
+3. npm install web3
+
+Run this globally(not in project folder)
+
+4. npm install -g live-server
+
+Now to run the program run in prject folder:
+
+5. live-server
+
+# Dependencies
+Metamask Extension (https://metamask.io/download/)
+
+Etherscan Goreli Testnet (https://goerli.etherscan.io/)
+
+Solidity (https://docs.soliditylang.org/en/v0.8.17/installing-solidity.html)
+
+Yarn (https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+
+Alchemy Web3 (https://www.npmjs.com/package/@alch/alchemy-web3)
+
+Node.js (https://nodejs.org/en/download)
+
+
+# Architecture Diagram
+Front-End
 ![image](https://github.com/michaelgadda/CS46X_ETH_SMART_CONTRACTS/assets/62987541/252b31f7-fc98-426d-9686-4f0b7ff2e7d6)
+
+Back-End
 
 # Demo Project Funding Request
 
