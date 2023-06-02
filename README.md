@@ -12,22 +12,6 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 - Contracts were deployed via hardhat w/ scripts in `packages/hardhat/deploy`
 - [SKIP TO QUICKSTART GUIDE FOR SCAFFOLD FRAMEWORK](https://github.com/scaffold-eth/scaffold-eth-2)
 
-# How to run the project
-Run this in project folder
-
-1. npm init -y
-
-2. npm install
-
-3. npm install web3
-
-Run this globally(not in project folder)
-
-4. npm install -g live-server
-
-Now to run the program run in prject folder:
-
-5. live-server
 
 # Dependencies
 Metamask Extension (https://metamask.io/download/)
