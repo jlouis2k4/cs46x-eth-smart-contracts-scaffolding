@@ -54,7 +54,7 @@ The lenders contract contains multiple public and private functions within the c
 
 Staking Contract-
 The staking contract contains a couple public functions that pay investors that have funded a company. An investor is payed a determined fraction of the invested amount. The payout function is used to distribute the payout to every investor. It transfers the payout amount to each address and updates that last payout time.
-![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/c456311e-deee-4a56-b5be-ab564011c416)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/9d326159-e2d7-4b2b-97d7-907c5ea693fb)
 
 Toll-based Contract-
 
