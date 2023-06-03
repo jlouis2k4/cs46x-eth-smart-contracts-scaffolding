@@ -47,6 +47,28 @@ Toll-based Contract-
 The toll-based contract is used to create a new project and list it. We are able to add users that invested into the project and we plan to communicate with the lending contract in future iterations. As of now we are able to deposit a test token, add infrastructures, and add users to a database. When the contract is complete, users will be able to see what infrastructure they are invested in, and how much of a stake they have in the project. 
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/19e61d91-a05d-4fb0-b680-dbc59625bf14)
 
+## Developer Guide to working on the Smart Contracts
+
+In order to work on any of the .sol smart contracts use the Remix IDE. Please follow the steps below. 
+
+### 1. In your browser open up remix (https://remix.ethereum.org/) 
+
+### 2. Once in remix upload any of the smart contracts you want to edit. 
+      You can do this by simply dragging and dropping a downloaded smart contract into the contracts folder. (See Image below)
+### 3. Once it is uploaded into Remix simply make the changes you want by editing the file in Remix.
+
+### 4. In order to compile the smart contract click on the Solidity symbol on the left side-bar and then click compile. 
+
+### 5. Once compiled you can now use the smart contract. In order to do this click on the Ethereum logo on the same left side bar.
+
+
+### 6. Once on this page you can now select the deployed contract you want to interact with. 
+
+  
+
+
+
+
 
 # Demo Project Funding Request
 
