@@ -55,14 +55,23 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 
 ### 2. Once in remix upload any of the smart contracts you want to edit. 
       You can do this by simply dragging and dropping a downloaded smart contract into the contracts folder. (See Image below)
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/77cb62e1-48b2-495b-aa99-7724ce5d7e3c" width=50% height=50%>
+
+
 ### 3. Once it is uploaded into Remix simply make the changes you want by editing the file in Remix.
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/e44f8a7a-6685-4095-be80-c43275526990" width=50% height=50%>
 
 ### 4. In order to compile the smart contract click on the Solidity symbol on the left side-bar and then click compile. 
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/030c2fb4-7a63-40f5-90e8-540f0bc1eee2" width=50% height=50%>
 
 ### 5. Once compiled you can now use the smart contract. In order to do this click on the Ethereum logo on the same left side bar.
-
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/655b7420-6f96-4e74-8024-0fb9269d9173" width=50% height=50%>
 
 ### 6. Once on this page you can now select the deployed contract you want to interact with. 
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/0694d413-3fb8-4c06-a484-2cd9f650218c" width=50% height=50%>
+
+### 7. Since you are editing this in a web-based ide you will have to move your edited code to a place that you can push your changes to GitHub. (This can be any local text editer where Git is installed - i.e notepad, sublime vs code, etc.)
+
 
   
 
