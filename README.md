@@ -109,4 +109,6 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
   
   ■ Implement cross-chain investment bridge protocols
 
+# For More Information Check Out Our Whitepaper!
+[Whitepaper-ETH Smart Contracts for Infrastructure Funding (1).pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657715/Whitepaper-ETH.Smart.Contracts.for.Infrastructure.Funding.1.pdf)
 
