@@ -13,12 +13,9 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 - [SKIP TO QUICKSTART GUIDE FOR SCAFFOLD FRAMEWORK](https://github.com/scaffold-eth/scaffold-eth-2)
 
 
-# Dependencies
+# Front End Dependencies
+
 Metamask Extension (https://metamask.io/download/)
-
-Etherscan Goreli Testnet (https://goerli.etherscan.io/)
-
-Solidity (https://docs.soliditylang.org/en/v0.8.17/installing-solidity.html)
 
 Yarn (https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 
@@ -26,6 +23,11 @@ Alchemy Web3 (https://www.npmjs.com/package/@alch/alchemy-web3)
 
 Node.js (https://nodejs.org/en/download)
 
+# Backend Dependencies 
+
+Etherscan Goreli Testnet (https://goerli.etherscan.io/)
+
+Solidity (https://docs.soliditylang.org/en/v0.8.17/installing-solidity.html)
 
 # Architecture Diagram
 Front-End-
