@@ -111,3 +111,8 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 
 # For More Information Check Out Our Whitepaper!
 [Whitepaper-ETH Smart Contracts for Infrastructure Funding.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657782/Whitepaper-ETH.Smart.Contracts.for.Infrastructure.Funding.pdf)
+
+# Test Strategy 
+
+Throughout this project we did not deploy formal unit tests at any point. However due to the security risks associated with Smart Contracts dealing with large amounts of money testing is and was needed. 
+
