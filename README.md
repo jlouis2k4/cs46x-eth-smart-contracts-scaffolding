@@ -120,3 +120,8 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 
 Throughout this project we did not deploy formal unit tests at any point. However due to the security risks associated with Smart Contracts dealing with large amounts of money testing is and was needed. 
 
+In order to test our smart contracts on a blockchain network we used Remix's IDE. 
+
+Remix's IDE provides a safe, quick and easy way to compile, deploy and interact with smart contracts. This allowed for us to do lots of manual testing to ensure that the smart contract's functionality was properly functioning. 
+
+At the core of our testing we wanted to make sure that money was not able to be sent, received, deposited, or withdrawn by the wrong person. As this would be the most devasting error. 
