@@ -34,7 +34,7 @@ Front-End-
 ![image](https://github.com/michaelgadda/CS46X_ETH_SMART_CONTRACTS/assets/62987541/252b31f7-fc98-426d-9686-4f0b7ff2e7d6)
 
 # Smart Contracts-
-Lenders Contract- (For developer details please refer to the wiki page here _)
+Lenders Contract- 
 
 The lenders contract contains multiple public and private functions within the contract. The code contains several functions that are used to manage, lenders, lendees, and loans stored in a database. Within the     contract, one is able to check the remaining loan balance, create a loan, check the remaining time on the loan, and pay debt. There are also multiple functions that check whether a user has requested a loan, if a user is in debt, and getting a list of all investors.
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/ab8ae692-96a5-4318-8f50-a9af15141c25)
@@ -44,7 +44,7 @@ Staking Contract-
 The staking contract contains a couple public functions that pay investors that have funded a company. An investor is payed a determined fraction of the invested amount. The payout function is used to distribute the payout to every investor. It transfers the payout amount to each address and updates that last payout time.
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/9d326159-e2d7-4b2b-97d7-907c5ea693fb)
 
-Toll-based Contract- (For developer details pelase refer to the wiki page here _ )
+Toll-based Contract- 
 
 The toll-based contract is used to create a new project and list it. We are able to add users that invested into the project and we plan to communicate with the lending contract in future iterations. As of now we are able to deposit a test token, add infrastructures, and add users to a database. When the contract is complete, users will be able to see what infrastructure they are invested in, and how much of a stake they have in the project. 
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/19e61d91-a05d-4fb0-b680-dbc59625bf14)
