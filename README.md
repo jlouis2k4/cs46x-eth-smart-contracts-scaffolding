@@ -109,13 +109,6 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
   
   ■ Implement cross-chain investment bridge protocols
 
-# Questions/Concerns From Code Walkthrough
-[Concerns From Code Walkthrough.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657807/Concerns.From.Code.Walkthrough.pdf)
-
-
-# For More Information Check Out Our Whitepaper!
-[Whitepaper-ETH Smart Contracts for Infrastructure Funding.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657782/Whitepaper-ETH.Smart.Contracts.for.Infrastructure.Funding.pdf)
-
 # Test Strategy 
 
 Throughout this project we did not deploy formal unit tests at any point. However due to the security risks associated with Smart Contracts dealing with large amounts of money testing is and was needed. 
@@ -134,3 +127,10 @@ Our only concern would be that money is transferred to the wrong hands or someon
 
 In order to address these concerns we did major testing in these areas and put in plenty of validation to ensure that this could never happen. 
 
+
+# Questions/Concerns From Code Walkthrough
+[Concerns From Code Walkthrough.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657807/Concerns.From.Code.Walkthrough.pdf)
+
+
+# For More Information Check Out Our Whitepaper!
+[Whitepaper-ETH Smart Contracts for Infrastructure Funding.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657782/Whitepaper-ETH.Smart.Contracts.for.Infrastructure.Funding.pdf)
