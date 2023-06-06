@@ -75,7 +75,7 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 
 
   
-# This is a [link] (projectdocs/old_frontend_guide.pdf) to our old front end documentation if the next capstone group wishes to revisit it.
+# This is a [link](projectdocs/old_frontend_guide.pdf) to our old front end documentation if the next capstone group wishes to revisit it.
 
 
 
