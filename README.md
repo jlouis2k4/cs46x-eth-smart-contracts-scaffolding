@@ -76,6 +76,7 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 
   
 # This is a [link](Project-Docs/frontend_guide_for_future.pdf) to our old front end documentation if the next capstone group wishes to revisit it.
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/b3e9395b-d74d-4cab-bf97-cc6cb0c899f6)
 
 
 
