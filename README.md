@@ -6,37 +6,47 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 
 - `Project-Docs/` contains our project designs & requirements, research information, and whitepaper describing our intended features. 
 - Our smart contracts are located in `packages/hardhat/contracts`
-  - Crowdfunding.sol: manages new projects deployed by a "contractor", routes user investments to specified project addresses
-  - Project.sol: manages a specific projects current information (view the .sol file for datatypes & variables)
+  - ```Crowdfunding.sol: manages new projects deployed by a "contractor", routes user investments to specified project addresses```
+
+  - ```Project.sol: manages a specific projects current information (view the .sol file for datatypes & variables)```
 - The front-end interface is at `packages/nextjs/pages`
 - Contracts were deployed via hardhat w/ scripts in `packages/hardhat/deploy`
-- [SKIP TO QUICKSTART GUIDE FOR SCAFFOLD FRAMEWORK](https://github.com/scaffold-eth/scaffold-eth-2)
+
+- *View the `scaffold-eth-2` framework & documentation [here](https://github.com/scaffold-eth/scaffold-eth-2) for the default developer stack, hardhat commands/scripts, changing config files for network deployment & `.env` secrets management, and finally the next.js framework packaged w/ pre-built scaffold react hooks to simplify smart contract interactions.*
 
 
 # Front End Dependencies
 
-Metamask Extension (https://metamask.io/download/)
+- [Yarn (classic stable v1.22.19 or v2+)](https://classic.yarnpkg.com/lang/en/docs/install/)
 
-Yarn (https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
+- [Node v18+](https://nodejs.org/en/download/)
 
-Alchemy Web3 (https://www.npmjs.com/package/@alch/alchemy-web3)
+- [Alchemy API](https://docs.alchemy.com/docs)
 
-Node.js (https://nodejs.org/en/download)
+- [Metamask Wallet](https://metamask.io/download/)
 
 # Backend Dependencies 
 
-Etherscan Goreli Testnet (https://goerli.etherscan.io/)
+- [Hardhat](https://hardhat.org/tutorial)  `(listed in package.json)`
 
-Solidity (https://docs.soliditylang.org/en/v0.8.17/installing-solidity.html)
+  ``` `yarn install` configures default developer environment```
+
+- [Sepolia Network (Testnet)](https://goerli.etherscan.io/)
+
+- [Solidity (+ solc/solcjs compiler)](https://docs.soliditylang.org/en/v0.8.20/installing-solidity.html#installing-solidity)
 
 # Architecture Diagram
 Front-End-
 ![image](https://github.com/michaelgadda/CS46X_ETH_SMART_CONTRACTS/assets/62987541/252b31f7-fc98-426d-9686-4f0b7ff2e7d6)
 
 # Smart Contracts-
-Lenders Contract- 
+Project Contract- 
 
-The lenders contract contains multiple public and private functions within the contract. The code contains several functions that are used to manage, lenders, lendees, and loans stored in a database. Within the     contract, one is able to check the remaining loan balance, create a loan, check the remaining time on the loan, and pay debt. There are also multiple functions that check whether a user has requested a loan, if a user is in debt, and getting a list of all investors.
+The `Project.sol` contract contains multiple public and private functions within it, and is the majority of the dapp's logic. The code contains several functions that are used to manage the roles of lenders (creditors vs. "normal" investor), lendees (the owner of each project loan reqest), and funds of corresponding loan payments. 
+
+Within the contract, one is able to check the current loan balance, intialize a loan (the "parent" contract, `Crowdfunding.sol`, calls the constructor), check the remaining time on the loan, and pay debt. There are also multiple modifier functions that checks the projects current state, whether a project owner has requested a loan withdrawal, the authorization level of any given user, and getting a list of all investors and payments. 
+
+The `crowdfunding` contract mainly tracks all created project contract addresses in `Project[] private projects`, and sends information about investors transactions to the `project` in `mapping(address => uint256) public contributors`.
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/ab8ae692-96a5-4318-8f50-a9af15141c25)
 
 Staking Contract-
@@ -72,13 +82,158 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 ### 6. Once on this page you can now select the deployed contract you want to interact with. 
 <img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/0694d413-3fb8-4c06-a484-2cd9f650218c" width=50% height=50%>
 
-### 7. Since you are editing this in a web-based ide you will have to move your edited code to a place that you can push your changes to GitHub. (This can be any local text editer where Git is installed - i.e notepad, sublime vs code, etc.)
+### 7. Since you are editing this in a web-based ide you will have to move your edited code to a place that you can push your changes to GitHub. (This can be any local text editer where Git is installed - i.e notepad, sublime vs code, etc.)  <br><br>
+
+# Guide to Local DApp Development: <br>Testing with Hardhat + Local Ethereum Blockchain and using the auto-updating Next.js Front-end Interface for debugging
+
+1. Clone the repository
+```
+git clone https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding.git
+```
+
+2. Navigate to the top level of the repository directory
+```
+cd cs46x-eth-smart-contracts-scaffolding
+```
+
+3. Make sure Node and Yarn from the dependency list above are installed correctly on your machine. Then use yarn to install the required package dependencies.
+
+This will setup hardhat, next-js, and other sub-dependencies such as the OpenZeppelin contract library and solhint (a solidity code linter).
+```
+yarn install
+```
+
+4. Start running a local ethereum blockchain network in your terminal. 
+
+This command starts a local Ethereum blockchain w/ Hardhat. The network runs on your local machine for testing and development. Customize network configuration in `hardhat.config.ts`.
+```
+yarn chain
+```
+
+5. In a second terminal, compile & deploy the contracts in `packages/hardhat/contracts`. 
+
+The `yarn deploy` command compiles all contracts and then, by default, deploys them to localhost. Contracts are located in `packages/hardhat/contracts`. This command uses the customized deploy scripts in `packages/hardhat/deploy` to deploy contracts to the network. 
+
+To change the network where contracts are deployed, you'll need to edit the network configuration in `packages/hardhat/hardhat.config.ts`.<br> ( e.g. a development cycle would deploy contracts to test in the following order: `localhost->sepolia->mainnet` )
+```
+yarn deploy
+```
+
+6. In the third terminal, start the NextJS app. Visit the app on: `http://localhost:3000`. You can interact with the smart contracts using the contract debugging screen. You can edit the app configuration in `packages/nextjs/scaffold.config.ts`.
+```
+yarn start
+```
 
 
-  
+## Important Dependencies Notes
+- OpenZeppelin
+- solhint
+- ethers library
+- dotenv
+- envfile
+- qrcode
+- chai for assertions in tests
+- mocha javascript testing library
+
+- next.js and react
+- eslint + prettier for next.js
+- typechain, library for converting Ethereum smart contract ABIs to typescript bindings 
+- wagmi
+- rainbowkit
 
 
+## Development Scripts
+- top level yarn package.json scripts
 
+- new changes to compiled contracts ==> auto-updating front-end debug screen 
+- hardhat commands scripts, hardhat/deploy/ scripts
+- how to test with hardhat (on deploy)
+
+- enforcing linting and type-checks on compile and deploy time
+- next.js commands/scripts
+
+
+## NatSpec Documentation for Developers + End-Users
+- link to natspec docs path (or wiki page) 
+- how to create new natspec docs from contracts
+
+
+## Recap
+- `Project-Docs/` contains our project designs & requirements, research information, and whitepaper describing our intended features. 
+
+- Edit smart contracts in `packages/hardhat/contracts/`
+  - ```Crowdfunding.sol: manages new projects deployed by a "contractor", routes user investments to specified project addresses```
+
+  - ```Project.sol: manages a specific projects current information (view the .sol file for datatypes & variables)```
+- Edit deployment scripts in `packages/hardhat/deploy/`
+- Run smart contract tests with `yarn hardhat:test`
+- Interact with and test the contracts using the debug page in the next.js app
+
+
+## Pre-built `scaffold-eth-2` React Hooks
+- Edit the frontend in `packages/nextjs/pages/`
+
+- View [scaffold-eth-2; Interacting with your Smart Contracts](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/README.md#interacting-with-your-smart-contracts-se-2-custom-hooks) for simple custom react hooks to communicate with contracts. Here's their description of each `useScaffold*()` react functions:
+    - [`useScaffoldContractRead`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/README.md#usescaffoldcontractread): for reading public variables and getting data from read-only functions of your contract.
+    - [`useScaffoldContractWrite`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/README.md#usescaffoldcontractwrite): for sending transactions to your contract to write data or perform an action.
+    - [`useScaffoldEventSubscriber`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/README.md#usescaffoldeventsubscriber): for subscribing to your contract events and receiving real-time updates when events are emitted.
+    - [`useScaffoldEventHistory`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/README.md#usescaffoldeventhistory): for retrieving historical event logs for your contract, providing past activity data.
+    - [`useDeployedContractInfo`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/README.md#usedeployedcontractinfo): for fetching details from your contract, including the ABI and address.
+    - [`useScaffoldContract`](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/README.md#usescaffoldcontract): for obtaining a contract instance that lets you interact with the methods of your deployed smart contract.
+
+
+## Guide to Deploying Smart Contracts to a live Ethereum Testnet & Configuring Local Private `.env` variables
+1. Select the network
+
+By default, `yarn deploy` will deploy the contract to the local network. Either change `defaultNetwork` in `packages/hardhat/hardhat.config.ts.` or run `yarn deploy --network target_network` to deploy to another network.  
+e.g. to deploy contracts to the Sepolia test network:
+```
+yarn deploy --network sepolia
+```
+The hardhat config `hardhat.config.ts` contains pre-configured networks provided by the scaffold team. You can also add other network settings to the `hardhat.config.ts` file. You may find the [Alchemy docs](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask) helpful for configuring specific networks.<br><br>
+
+2. Generate a new account (or add one to `.env`) to deploy the contracts from. You will need to add an Alchemy API key when deploying to an external network. Fill the required keys in `.env`.
+
+The deployer account is the private address of the account that will deploy the contracts. The deployer account also executes any function calls that are a part of the deployment scripts. Note that this file is included in `.gitignore`.
+```
+# Template for environment variables
+ALCHEMY_API_KEY=
+DEPLOYER_PRIVATE_KEY=
+ETHERSCAN_API_KEY=
+```
+You need to either generate a random account (public + private key) with `yarn generate`, or add the private key of your crypto wallet (from metamask, and probably a wallet dedicated to testnet development so as to not commingle keys & other information). `yarn generate` will create a random account and automatically add the DEPLOYER_PRIVATE_KEY to the .env file. You can view your generated account with `yarn account`.<br><br>
+
+3. Deploying the smart contracts
+
+Run the command below to deploy contracts to the target network. Ensure you have some funds in your deployer account for target network to pay the gas fees.
+```
+yarn deploy --network network_name
+```
+
+4. Verifying the smart contracts deployed with Etherscan (optional but not)
+```
+yarn verify --network network_name
+```
+<br>
+
+## Guide to Deploying the NextJS App to Vercel
+**Ensure `packages/nextjs/scaffold.config.ts` file has the correct values.**
+
+***We used the Vercel UI to connect the GitHub repo to Vercel. This lets us automatically deploy production changes when pushing to `main`.***
+
+To instead deploy from the CLI, run `yarn vercel` and follow the steps to deploy to Vercel. You'll need to log in through the CLI (email, github, etc), and then the default options should work. 
+
+From the CLI, to redeploy to the same production URL, run `yarn vercel --prod`. By not using the `--prod` flag, it will instead deploy it to a preview/test URL.
+
+
+## Best Ethereum and Blockchain Development Resources
+- github links
+- tools
+- blockchain APIs
+- best development & contract practices, linting, type checks
+- solidity docs
+- learning by example, gamification sites, standardized contract examples
+- research forums, vitalik blog 
 
 
 # Demo Project Funding Request
@@ -86,8 +241,7 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/c2514e39-bdc0-4e97-b990-0d07bb95fc28)
 
 # Roadmap
-
-  ○ Done so Far:
+- **Done so Far**:
   
   ○ Design project protocol + token requirements & develop our dApp.
   
@@ -96,18 +250,19 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
   ○ Model how retail investors will receive incentives from providing liquidity to a loan pool.
   
   ○ Integrate loan terms (repayment schedule, interest, & more)
-  
+
   ○ Refine our very simple dApp user interface
 
-# Future Milestones:
+- **Future Milestones**:
 
   ■ Tokens can be transacted through our dApp network to access certain tolled infrastructure (i.e. road tolls, bridges, ferries, etc).
-  
-  ■ Integrate additional DeFi loan protocols
-  
+
   ■ Explore tokenomic models & bonding curves
   
+  ■ Integrate additional DeFi loan protocols (OpenZeppelin, IPFS, Chainlink)
+  
   ■ Implement cross-chain investment bridge protocols
+<br><br>
 
 # Test Strategy 
 
@@ -118,6 +273,7 @@ In order to test our smart contracts on a blockchain network we used Remix's IDE
 Remix's IDE provides a safe, quick and easy way to compile, deploy and interact with smart contracts. This allowed for us to do lots of manual testing to ensure that the smart contract's functionality was properly functioning. 
 
 At the core of our testing we wanted to make sure that money was not able to be sent, received, deposited, or withdrawn by the wrong person. As this would be the most devasting error. 
+<br><br>
 
 # Risk Analysis 
 
@@ -126,7 +282,7 @@ The only risks associated with project are the security concerns regarding trans
 Our only concern would be that money is transferred to the wrong hands or someone that was not supposed to be able to withdraw money is able to withdraw money. 
 
 In order to address these concerns we did major testing in these areas and put in plenty of validation to ensure that this could never happen. 
-
+<br><br>
 
 # Questions/Concerns From Code Walkthrough
 [Concerns From Code Walkthrough.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657807/Concerns.From.Code.Walkthrough.pdf)
