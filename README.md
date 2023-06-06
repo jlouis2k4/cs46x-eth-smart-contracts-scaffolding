@@ -3,7 +3,6 @@
 Our primary objective is to eliminate delays and minimize cost overruns in the development of infrastructure projects by utilizing blockchain-based smart contracts to streamline the management of funding and ownership of these assets. By harnessing the power of blockchain technology, we aim to significantly enhance the transparency and accountability of transactions, thereby fostering trust among all stakeholders, including investors, developers, and end-users.
 
 # Project Structure
-k
 - `Project-Docs/` contains our project designs & requirements, research information, and whitepaper describing our intended features. 
 - Our smart contracts are located in `packages/hardhat/contracts`
   - Crowdfunding.sol: manages new projects deployed by a "contractor", routes user investments to specified project addresses
