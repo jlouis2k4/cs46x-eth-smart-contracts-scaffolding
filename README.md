@@ -3,7 +3,6 @@
 Our primary objective is to eliminate delays and minimize cost overruns in the development of infrastructure projects by utilizing blockchain-based smart contracts to streamline the management of funding and ownership of these assets. By harnessing the power of blockchain technology, we aim to significantly enhance the transparency and accountability of transactions, thereby fostering trust among all stakeholders, including investors, developers, and end-users.
 
 # Project Structure
-
 - `Project-Docs/` contains our project designs & requirements, research information, and whitepaper describing our intended features. 
 - Our smart contracts are located in `packages/hardhat/contracts`
   - ```Crowdfunding.sol: manages new projects deployed by a "contractor", routes user investments to specified project addresses```
@@ -168,7 +167,17 @@ yarn start
 - Edit deployment scripts in `packages/hardhat/deploy/`
 - Run smart contract tests with `yarn hardhat:test`
 - Interact with and test the contracts using the debug page in the next.js app
+<br><br>
 
+## Best Ethereum and Blockchain Development Resources
+- github links
+- tools
+- blockchain APIs
+- best development & contract practices, linting, type checks
+- solidity docs
+- learning by example, gamification sites, standardized contract examples
+- research forums, vitalik blog 
+<br><br>
 
 ## Pre-built `scaffold-eth-2` React Hooks
 - Edit the frontend in `packages/nextjs/pages/`
@@ -226,19 +235,14 @@ To instead deploy from the CLI, run `yarn vercel` and follow the steps to deploy
 From the CLI, to redeploy to the same production URL, run `yarn vercel --prod`. By not using the `--prod` flag, it will instead deploy it to a preview/test URL.
 
 
-## Best Ethereum and Blockchain Development Resources
-- github links
-- tools
-- blockchain APIs
-- best development & contract practices, linting, type checks
-- solidity docs
-- learning by example, gamification sites, standardized contract examples
-- research forums, vitalik blog 
-
-
 # Demo Project Funding Request
 
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/c2514e39-bdc0-4e97-b990-0d07bb95fc28)
+
+
+# This is a [link](Project-Docs/frontend_guide_for_future.pdf) to our old front end documentation if the next capstone group wishes to revisit it.
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/b3e9395b-d74d-4cab-bf97-cc6cb0c899f6)
+<br><br>
 
 # Roadmap
 - **Done so Far**:
