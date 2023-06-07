@@ -14,6 +14,13 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 - *View the `scaffold-eth-2` framework & documentation [here](https://github.com/scaffold-eth/scaffold-eth-2) for the default developer stack, hardhat commands/scripts, changing config files for network deployment & `.env` secrets management, and finally the next.js framework packaged w/ pre-built scaffold react hooks to simplify smart contract interactions.*
 
 
+## NatSpec Documentation for Developers + End-Users
+- [link to natspec solidity contract documentation](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/blob/24e534c31099814dbb25319512ff9fdcc8721788/packages/hardhat/docs/index.md)
+
+- compile & create new natspec docs from contracts using:
+`yarn docgen`
+
+
 # Front End Dependencies
 
 - [Yarn (classic stable v1.22.19 or v2+)](https://classic.yarnpkg.com/lang/en/docs/install/)
@@ -182,12 +189,6 @@ yarn start
     "vercel:yolo": "vercel --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true"
   }
 ```
-
-## NatSpec Documentation for Developers + End-Users
-- link to natspec docs path (or wiki page) 
-
-- compile & create new natspec docs from contracts using:
-`yarn docgen`
 
 
 ## Recap
