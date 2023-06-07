@@ -15,7 +15,7 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 
 
 ## NatSpec Documentation for Developers + End-Users
-- [link to natspec solidity contract documentation](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/blob/24e534c31099814dbb25319512ff9fdcc8721788/packages/hardhat/docs/index.md)
+- [**Click here for solidity smart contract natspec documentation**](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/blob/24e534c31099814dbb25319512ff9fdcc8721788/packages/hardhat/docs/index.md)
 
 - compile & create new natspec docs from contracts using:
 `yarn docgen`
