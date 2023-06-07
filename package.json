@@ -20,6 +20,7 @@
         "verify": "yarn workspace @se-2/hardhat verify",
         "compile": "yarn workspace @se-2/hardhat compile",
         "generate": "yarn workspace @se-2/hardhat generate",
+        "docgen": "yarn workspace @se-2/hardhat docgen",
         "hardhat:lint": "yarn workspace @se-2/hardhat lint",
         "hardhat:lint-staged": "yarn workspace @se-2/hardhat lint-staged",
         "hardhat:test": "yarn workspace @se-2/hardhat test",

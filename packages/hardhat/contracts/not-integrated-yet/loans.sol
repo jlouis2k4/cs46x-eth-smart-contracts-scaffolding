@@ -1,4 +1,5 @@
-pragma solidity >=0.7.0 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.8.9 < 0.9.0;
 
 contract Lending {
     loan[]  private loans;
@@ -103,12 +104,12 @@ contract Lending {
         
     }
 
-    function checkifLoanExistsInArray(uint loanId) private returns(bool){
+    function checkifLoanExistsInArray(uint loanId) private view returns(bool loanExists){
         bool returnedTrue = false;
         for (uint i = 0; i < loans.length; i++) {
             if(loans[i].loanId == loanId) {
                 return true; 
-                returnedTrue = true;
+                //returnedTrue = true;
             }
         }
         if (returnedTrue == false) {
@@ -130,7 +131,7 @@ contract Lending {
     }
 
 
-    function checkIfLendeeHasAccessToLoan(address payable lendeeAddress, uint loanId) private returns(bool){
+    function checkIfLendeeHasAccessToLoan(address payable lendeeAddress, uint loanId) private returns(bool hasAccess){
         uint lendeeIndex = getLendeeArrayIndex(lendeeAddress);
         bool returnedTrue = false;
         if (lendeeIndex == 999999999) {return false;}
@@ -138,7 +139,7 @@ contract Lending {
         for (uint i = 0; i < lendees[lendeeIndex].loanIds.length; i++) {
             if (loanId == lendees[lendeeIndex].loanIds[i]) {
                 return true;
-                returnedTrue = true;
+                //returnedTrue = true;
             }
         }
         if (returnedTrue == false) {
@@ -146,7 +147,7 @@ contract Lending {
         }
     }
 
-    function checkifLenderHasAccessToLoan(address payable lenderAddress, uint loanId) private returns(bool){
+    function checkifLenderHasAccessToLoan(address payable lenderAddress, uint loanId) private returns(bool hasAccess){
         uint lenderIndex = getLenderArrayIndex(lenderAddress);
         bool returnedTrue = false;
         //require(lenderIndex != 999999999, "This lendee does not exist!");
@@ -154,7 +155,7 @@ contract Lending {
         for (uint i = 0; i < lenders[lenderIndex].loanIds.length; i++) {
             if (loanId == lenders[lenderIndex].loanIds[i]) {
                 return true;
-                returnedTrue = true;
+                //returnedTrue = true;
             }
         }
         if (returnedTrue == false) {

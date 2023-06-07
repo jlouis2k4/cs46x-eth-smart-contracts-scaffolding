@@ -11,7 +11,8 @@
     "lint": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore ./*.ts ./deploy/**/*.ts ./scripts/**/*.ts ./test/**/*.ts",
     "lint-staged": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore",
     "test": "REPORT_GAS=true hardhat test --network hardhat",
-    "verify": "hardhat etherscan-verify"
+    "verify": "hardhat etherscan-verify",
+    "docgen": "hardhat docgen"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.7.0",
@@ -48,6 +49,7 @@
     "@openzeppelin/contracts-upgradeable": "^4.8.3",
     "dotenv": "^16.0.3",
     "envfile": "^6.18.0",
-    "qrcode": "^1.5.1"
+    "qrcode": "^1.5.1",
+    "solidity-docgen": "^0.6.0-beta.35"
   }
 }

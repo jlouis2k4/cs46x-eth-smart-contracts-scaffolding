@@ -5,7 +5,6 @@ import "./Project.sol";
 
 contract Crowdfunding {
     /// @dev Initializes a project
-    /// @return null
     event ProjectCreation(
         address projectContractAddress,
         address creator,

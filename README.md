@@ -128,10 +128,11 @@ yarn start
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/256dbe68-a254-415d-bf93-52bf84f31b29)
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/5d5cfd8a-b489-4797-b965-51b05297d764)
 
-## Important Dependencies Notes
+## Important Dependencies
 - OpenZeppelin
 - solhint
 - ethers library
+- solidity-docgen
 - dotenv
 - envfile
 - qrcode
