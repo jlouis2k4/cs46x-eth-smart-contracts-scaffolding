@@ -99,8 +99,9 @@ cd cs46x-eth-smart-contracts-scaffolding
 
 This will setup hardhat, next-js, and other sub-dependencies such as the OpenZeppelin contract library and solhint (a solidity code linter).
 ```
-yarn install
+yarn install //note: may take ~20mins on first install
 ```
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/07acfdd0-916d-4608-9fa7-6bdf4fc9b91c)
 
 4. Start running a local ethereum blockchain network in your terminal. 
 
@@ -108,6 +109,7 @@ This command starts a local Ethereum blockchain w/ Hardhat. The network runs on 
 ```
 yarn chain
 ```
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/6521a159-8a9d-451d-ad0e-cbc58eee79ae)
 
 5. In a second terminal, compile & deploy the contracts in `packages/hardhat/contracts`. 
 
@@ -117,12 +119,14 @@ To change the network where contracts are deployed, you'll need to edit the netw
 ```
 yarn deploy
 ```
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/e0e948eb-ee07-4777-aa81-06c1e0c8da0b)
 
 6. In the third terminal, start the NextJS app. Visit the app on: `http://localhost:3000`. You can interact with the smart contracts using the contract debugging screen. You can edit the app configuration in `packages/nextjs/scaffold.config.ts`.
 ```
 yarn start
 ```
-
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/256dbe68-a254-415d-bf93-52bf84f31b29)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/5d5cfd8a-b489-4797-b965-51b05297d764)
 
 ## Important Dependencies Notes
 - OpenZeppelin
@@ -142,15 +146,41 @@ yarn start
 
 
 ## Development Scripts
-- top level yarn package.json scripts
+- When new changes to contracts are detected, hardhat will update nessecary changes. Had I added a new function or changed one from the deployed contracts, the front-end would also auto-update the debug screen and fields for the public functions.    
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/294dd1a9-ff92-4bfa-9e54-c2714d5020d4)
 
-- new changes to compiled contracts ==> auto-updating front-end debug screen 
-- hardhat commands scripts, hardhat/deploy/ scripts
-- how to test with hardhat (on deploy)
+- top level yarn package.json scripts link the hardhat and next.js workspace scripts together
+- hardhat commands/scripts, hardhat/deploy/
+```
+"scripts": {
+    "account": "hardhat run scripts/listAccount.ts",
+    "chain": "hardhat node --network hardhat --no-deploy",
+    "compile": "hardhat compile",
+    "deploy": "hardhat deploy --export-all ./temp/hardhat_contracts.json \"$@\" && hardhat run scripts/generateTsAbis.ts",
+    "fork": "MAINNET_FORKING_ENABLED=true hardhat node --network hardhat --no-deploy",
+    "generate": "hardhat run scripts/generateAccount.ts",
+    "lint": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore ./*.ts ./deploy/**/*.ts ./scripts/**/*.ts ./test/**/*.ts",
+    "lint-staged": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore",
+    "test": "REPORT_GAS=true hardhat test --network hardhat",
+    "verify": "hardhat etherscan-verify"
+  }
+```
 
-- enforcing linting and type-checks on compile and deploy time
+- enforcing linting and type-checks on deploy time
 - next.js commands/scripts
-
+```
+"scripts": {
+    "dev": "next dev",
+    "start": "next dev",
+    "build": "next build",
+    "serve": "next start",
+    "lint": "next lint",
+    "format": "prettier --write . '!(node_module|.next|contracts)/**/*'",
+    "check-types": "tsc --noEmit --incremental",
+    "vercel": "vercel",
+    "vercel:yolo": "vercel --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true"
+  }
+```
 
 ## NatSpec Documentation for Developers + End-Users
 - link to natspec docs path (or wiki page) 
