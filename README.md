@@ -269,7 +269,7 @@ To instead deploy from the CLI, run `yarn vercel` and follow the steps to deploy
 From the CLI, to redeploy to the same production URL, run `yarn vercel --prod`. By not using the `--prod` flag, it will instead deploy it to a preview/test URL.
 
 
-# Demo Project Funding Request
+# Demo Loan Request (showing 0.1 ETH in project contract `0xe7f` balance, contributed by `0x9c4`)
 
 ![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/c2514e39-bdc0-4e97-b990-0d07bb95fc28)
 
