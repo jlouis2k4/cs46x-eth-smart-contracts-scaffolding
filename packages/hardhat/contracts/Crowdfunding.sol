@@ -26,7 +26,7 @@ contract Crowdfunding {
 
     Project[] private projects;
 
-    // External functions
+    /// @notice External functions
 
     /// @dev Get list of projects
     /// @return array
@@ -34,7 +34,7 @@ contract Crowdfunding {
         return projects;
     }
 
-    // Public functions
+    /// @notice Public functions
 
     /// @dev Anyone can contribute to a project
     /// @param _projectAddress The project address where funds are deposited

@@ -185,7 +185,9 @@ yarn start
 
 ## NatSpec Documentation for Developers + End-Users
 - link to natspec docs path (or wiki page) 
-- how to create new natspec docs from contracts
+
+- compile & create new natspec docs from contracts using:
+`yarn docgen`
 
 
 ## Recap

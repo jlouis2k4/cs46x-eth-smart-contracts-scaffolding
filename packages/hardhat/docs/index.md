@@ -113,6 +113,8 @@ struct WithdrawRequest {
 address payable creator
 ```
 
+Variables
+
 ### minimumContribution
 
 ```solidity
@@ -191,11 +193,15 @@ uint256 noOfWithdrawRequests
 modifier isCreator()
 ```
 
+_Modifier that runs before the function it is used in executes, verify user is owner_
+
 ### atState
 
 ```solidity
 modifier atState(enum Project.State _state)
 ```
+
+_Modifier that runs before the function it is used in executes, to verify project state_
 
 ### FundingReceived
 
@@ -203,11 +209,15 @@ modifier atState(enum Project.State _state)
 event FundingReceived(address contributor, uint256 amount, uint256 currentTotal)
 ```
 
+_Event that will be emitted whenever funding transaction is received_
+
 ### WithdrawRequestCreated
 
 ```solidity
 event WithdrawRequestCreated(uint256 requestId, string description, uint256 amount, uint256 noOfVotes, bool isApproved, address recipient)
 ```
+
+_Event that will be emitted whenever a withdraw request is created by the project owner_
 
 ### WithdrawRequestVote
 
@@ -215,11 +225,15 @@ event WithdrawRequestCreated(uint256 requestId, string description, uint256 amou
 event WithdrawRequestVote(address voter, uint256 totalVote)
 ```
 
+_Event that will be emitted whenever a contributor votes for a withdraw request_
+
 ### AmountWithdrawSuccessful
 
 ```solidity
 event AmountWithdrawSuccessful(uint256 requestId, string description, uint256 amount, uint256 noOfVotes, bool isApproved, address recipient)
 ```
+
+_Event that will be emitted whenever an approved withdraw request is sent to owner_
 
 ### contribute
 

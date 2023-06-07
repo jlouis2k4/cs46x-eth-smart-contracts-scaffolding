@@ -27,14 +27,14 @@ contract Project is AccessControlEnumerable {
         AccessControlEnumerable._grantRole(DEFAULT_ADMIN_ROLE, creator);
     }
 
-    // Project State
+    /// @dev Project State
     enum State {
         Open,
         Expired,
         Successful
     }
 
-    // Structs
+    /// @notice Structs
     struct WithdrawRequest {
         string description;
         uint256 amount;
@@ -44,7 +44,7 @@ contract Project is AccessControlEnumerable {
         address payable recipient;
     }
 
-    // Variables
+    /// @notice Variables
     address payable public creator; // Owner's address of the project
     uint256 public minimumContribution; // The minumum a user can contribute to a project each transaction
     uint256 public deadline;
@@ -61,7 +61,9 @@ contract Project is AccessControlEnumerable {
 
     uint256 public noOfWithdrawRequests = 0;
 
-    // Modifiers
+    /// @notice Modifiers
+
+    /// @dev Modifier that runs before the function it is used in executes, verify user is owner
     modifier isCreator() {
         require(
             msg.sender == creator,
@@ -70,21 +72,22 @@ contract Project is AccessControlEnumerable {
         _;
     }
 
+    /// @dev Modifier that runs before the function it is used in executes, to verify project state
     modifier atState(State _state) {
         require(state == _state, "Invalid state!");
         _;
     }
 
-    // Events
+    /// @notice Events
 
-    // Event that will be emitted whenever funding transaction is received
+    /// @dev Event that will be emitted whenever funding transaction is received
     event FundingReceived(
         address contributor,
         uint256 amount,
         uint256 currentTotal
     );
 
-    // Event that will be emitted whenever a withdraw request is created by the project owner
+    /// @dev Event that will be emitted whenever a withdraw request is created by the project owner
     event WithdrawRequestCreated(
         uint256 requestId,
         string description,
@@ -94,10 +97,10 @@ contract Project is AccessControlEnumerable {
         address recipient
     );
 
-    // Event that will be emitted whenever a contributor votes for a withdraw request
+    /// @dev Event that will be emitted whenever a contributor votes for a withdraw request
     event WithdrawRequestVote(address voter, uint256 totalVote);
 
-    // Event that will be emitted whenever an approved withdraw request is sent to owner
+    /// @dev Event that will be emitted whenever an approved withdraw request is sent to owner
     event AmountWithdrawSuccessful(
         uint256 requestId,
         string description,
@@ -107,7 +110,7 @@ contract Project is AccessControlEnumerable {
         address recipient
     );
 
-    // Public Functions
+    /// @dev Public Functions
 
     /// @dev Any user can contribute to a project.
     function contribute(address _contributor) public payable atState(State.Open) {
@@ -276,7 +279,7 @@ contract Project is AccessControlEnumerable {
         );
     }
 
-    // Internal Functions
+    /// @dev Internal Functions
     
     /// @dev TODO-DEBUG: Seems that project state is set to `Successful` after one contribution
     /// @dev Sets project state if expired or funded
