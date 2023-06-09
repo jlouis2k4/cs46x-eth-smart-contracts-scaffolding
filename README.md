@@ -221,7 +221,7 @@ yarn start
 - [Ethereum Research](https://ethresear.ch/)
 - [Vitalik's Blog on Blockchains](https://vitalik.ca/categories/blockchains.html)
 
-### Best Practices
+### Best Practices:
 - [Clean Contracts - a guide on smart contract patterns & practices](https://www.useweb3.xyz/guides/clean-contracts)
 - [ConsenSys: Ethereum Smart Contract Best Practices](https://consensys.github.io/smart-contract-best-practices/)
 
