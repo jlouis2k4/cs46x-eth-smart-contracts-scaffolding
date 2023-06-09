@@ -203,14 +203,46 @@ yarn start
 - Interact with and test the contracts using the debug page in the next.js app
 <br><br>
 
-## Best Ethereum and Blockchain Development Resources
-- github links
-- tools
-- blockchain APIs
-- best development & contract practices, linting, type checks
-- solidity docs
-- learning by example, gamification sites, standardized contract examples
-- research forums, vitalik blog 
+## Recommended Ethereum and Blockchain Resources
+### Curated Lists:
+- [ethereum-developer-tools-list/README.md at master](https://github.com/ConsenSys/ethereum-developer-tools-list/blob/master/README.md)
+- [ethereum-developer-tools-list/EcosystemResources.md at master](https://github.com/ConsenSys/ethereum-developer-tools-list/blob/master/EcosystemResources.md)
+
+### Documentation:
+- [Solidity Documentation](https://docs.soliditylang.org/en/latest/)
+- [Ethereum Developer Resources](https://ethereum.org/en/developers/)
+- [Hardhat Documentation by Nomic Foundation](https://hardhat.org/docs)
+- [scaffold-eth/scaffold-eth-2: Open source forkable Ethereum dev stack](https://github.com/scaffold-eth/scaffold-eth-2)
+- [Remix’s documentation!](https://remix-ide.readthedocs.io/en/latest/index.html)
+- [Ethereum Yellow Paper: formal specification of Ethereum, a programmable blockchain](https://ethereum.github.io/yellowpaper/paper.pdf)
+
+### Research/Forums/Blogs:
+- [Ethereum Stack Exchange](https://ethereum.stackexchange.com/)
+- [Ethereum Research](https://ethresear.ch/)
+- [Vitalik's Blog on Blockchains](https://vitalik.ca/categories/blockchains.html)
+
+### Best Practices
+- [Clean Contracts - a guide on smart contract patterns & practices](https://www.useweb3.xyz/guides/clean-contracts)
+- [ConsenSys: Ethereum Smart Contract Best Practices](https://consensys.github.io/smart-contract-best-practices/)
+
+### Cheat Sheets:
+- [soliditylang.org docs cheatsheet](https://docs.soliditylang.org/en/latest/cheatsheet.html)
+- [Solidity Quick References](https://topmonks.github.io/solidity_quick_ref/)
+- [Ethereum VM (EVM) Opcodes & Instruction Reference](https://github.com/crytic/evm-opcodes)
+
+### Learning:
+- [Ethereum EVM illustrated](https://takenobu-hs.github.io/downloads/ethereum_evm_illustrated.pdf)
+- [Solidity by Example](https://solidity-by-example.org/)
+- [useWeb3.xyz](https://www.useweb3.xyz/tags/smart%20contracts)
+- [Speed Run Ethereum](https://speedrunethereum.com/)
+- [Learn Solidity – A Handbook for Smart Contract Development](https://www.freecodecamp.org/news/learn-solidity-handbook/)
+
+### IDEs:
+You should probably use VSCode for local development or Remix for quick prototyping.
+- [Remix IDE](https://remix.ethereum.org/)
+- [solidity - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
+- [Hardhat-Solidity - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=NomicFoundation.hardhat-solidity)
+- [GitHub - tomlion/vim-solidity: Vim syntax file for solidity](https://github.com/tomlion/vim-solidity)
 <br><br>
 
 ## Pre-built `scaffold-eth-2` React Hooks
