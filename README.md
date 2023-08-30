@@ -15,7 +15,7 @@ Our primary objective is to eliminate delays and minimize cost overruns in the d
 
 
 ## NatSpec Documentation for Developers + End-Users
-- [**Click here for solidity smart contract natspec documentation**](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/blob/24e534c31099814dbb25319512ff9fdcc8721788/packages/hardhat/docs/index.md)
+- [**Click here for solidity smart contract natspec documentation**](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/blob/24e534c31099814dbb25319512ff9fdcc8721788/packages/hardhat/docs/index.md)
 
 - compile & create new natspec docs from contracts using:
 `yarn docgen`
@@ -53,17 +53,17 @@ The `Project.sol` contract contains multiple public and private functions within
 Within the contract, one is able to check the current loan balance, intialize a loan (the "parent" contract, `Crowdfunding.sol`, calls the constructor), check the remaining time on the loan, and pay debt. There are also multiple modifier functions that checks the projects current state, whether a project owner has requested a loan withdrawal, the authorization level of any given user, and getting a list of all investors and payments. 
 
 The `crowdfunding` contract mainly tracks all created project contract addresses in `Project[] private projects`, and sends information about investors transactions to the `project` in `mapping(address => uint256) public contributors`.
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/62987541/ab8ae692-96a5-4318-8f50-a9af15141c25)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/ab8ae692-96a5-4318-8f50-a9af15141c25)
 
 Staking Contract-
 
 The staking contract contains a couple public functions that pay investors that have funded a company. An investor is payed a determined fraction of the invested amount. The payout function is used to distribute the payout to every investor. It transfers the payout amount to each address and updates that last payout time.
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/62987541/9d326159-e2d7-4b2b-97d7-907c5ea693fb)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/9d326159-e2d7-4b2b-97d7-907c5ea693fb)
 
 Toll-based Contract- 
 
 The toll-based contract is used to create a new project and list it. We are able to add users that invested into the project and we plan to communicate with the lending contract in future iterations. As of now we are able to deposit a test token, add infrastructures, and add users to a database. When the contract is complete, users will be able to see what infrastructure they are invested in, and how much of a stake they have in the project. 
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/62987541/19e61d91-a05d-4fb0-b680-dbc59625bf14)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/19e61d91-a05d-4fb0-b680-dbc59625bf14)
 
 ## Developer Guide to working on the Smart Contracts
 
@@ -73,20 +73,20 @@ In order to work on any of the .sol smart contracts use the Remix IDE. Please fo
 
 ### 2. Once in remix upload any of the smart contracts you want to edit. 
       You can do this by simply dragging and dropping a downloaded smart contract into the contracts folder. (See Image below)
-<img src="https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/71783038/77cb62e1-48b2-495b-aa99-7724ce5d7e3c" width=50% height=50%>
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/77cb62e1-48b2-495b-aa99-7724ce5d7e3c" width=50% height=50%>
 
 
 ### 3. Once it is uploaded into Remix simply make the changes you want by editing the file in Remix.
-<img src="https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/71783038/e44f8a7a-6685-4095-be80-c43275526990" width=50% height=50%>
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/e44f8a7a-6685-4095-be80-c43275526990" width=50% height=50%>
 
 ### 4. In order to compile the smart contract click on the Solidity symbol on the left side-bar and then click compile. 
-<img src="https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/71783038/030c2fb4-7a63-40f5-90e8-540f0bc1eee2" width=50% height=50%>
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/030c2fb4-7a63-40f5-90e8-540f0bc1eee2" width=50% height=50%>
 
 ### 5. Once compiled you can now use the smart contract. In order to do this click on the Ethereum logo on the same left side bar.
-<img src="https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/71783038/655b7420-6f96-4e74-8024-0fb9269d9173" width=50% height=50%>
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/655b7420-6f96-4e74-8024-0fb9269d9173" width=50% height=50%>
 
 ### 6. Once on this page you can now select the deployed contract you want to interact with. 
-<img src="https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/71783038/0694d413-3fb8-4c06-a484-2cd9f650218c" width=50% height=50%>
+<img src="https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/71783038/0694d413-3fb8-4c06-a484-2cd9f650218c" width=50% height=50%>
 
 ### 7. Since you are editing this in a web-based ide you will have to move your edited code to a place that you can push your changes to GitHub. (This can be any local text editer where Git is installed - i.e notepad, sublime vs code, etc.)  <br><br>
 
@@ -108,7 +108,7 @@ This will setup hardhat, next-js, and other sub-dependencies such as the OpenZep
 ```
 yarn install //note: may take ~20mins on first install
 ```
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/61107440/07acfdd0-916d-4608-9fa7-6bdf4fc9b91c)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/07acfdd0-916d-4608-9fa7-6bdf4fc9b91c)
 
 4. Start running a local ethereum blockchain network in your terminal. 
 
@@ -116,7 +116,7 @@ This command starts a local Ethereum blockchain w/ Hardhat. The network runs on 
 ```
 yarn chain
 ```
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/61107440/6521a159-8a9d-451d-ad0e-cbc58eee79ae)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/6521a159-8a9d-451d-ad0e-cbc58eee79ae)
 
 5. In a second terminal, compile & deploy the contracts in `packages/hardhat/contracts`. 
 
@@ -126,14 +126,14 @@ To change the network where contracts are deployed, you'll need to edit the netw
 ```
 yarn deploy
 ```
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/61107440/e0e948eb-ee07-4777-aa81-06c1e0c8da0b)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/e0e948eb-ee07-4777-aa81-06c1e0c8da0b)
 
 6. In the third terminal, start the NextJS app. Visit the app on: `http://localhost:3000`. You can interact with the smart contracts using the contract debugging screen. You can edit the app configuration in `packages/nextjs/scaffold.config.ts`.
 ```
 yarn start
 ```
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/61107440/256dbe68-a254-415d-bf93-52bf84f31b29)
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/61107440/5d5cfd8a-b489-4797-b965-51b05297d764)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/256dbe68-a254-415d-bf93-52bf84f31b29)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/5d5cfd8a-b489-4797-b965-51b05297d764)
 
 ## Important Dependencies
 - OpenZeppelin
@@ -155,7 +155,7 @@ yarn start
 
 ## Development Scripts
 - When new changes to contracts are detected, hardhat will update nessecary changes. Had I added a new function or changed one from the deployed contracts, the front-end would also auto-update the debug screen and fields for the public functions.    
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/61107440/294dd1a9-ff92-4bfa-9e54-c2714d5020d4)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/294dd1a9-ff92-4bfa-9e54-c2714d5020d4)
 
 - top level yarn package.json scripts link the hardhat and next.js workspace scripts together
 - hardhat commands/scripts, hardhat/deploy/
@@ -303,11 +303,11 @@ From the CLI, to redeploy to the same production URL, run `yarn vercel --prod`. 
 
 # Demo Loan Request (showing 0.1 ETH in project contract `0xe7f` balance, contributed by `0x9c4`)
 
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/61107440/c2514e39-bdc0-4e97-b990-0d07bb95fc28)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/61107440/c2514e39-bdc0-4e97-b990-0d07bb95fc28)
 
 
 # This is a [link](Project-Docs/frontend_guide_for_future.pdf) to our old front end documentation if the next capstone group wishes to revisit it.
-![image](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/assets/62987541/b3e9395b-d74d-4cab-bf97-cc6cb0c899f6)
+![image](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/assets/62987541/b3e9395b-d74d-4cab-bf97-cc6cb0c899f6)
 <br><br>
 
 # Roadmap
@@ -355,8 +355,8 @@ In order to address these concerns we did major testing in these areas and put i
 <br><br>
 
 # Questions/Concerns From Code Walkthrough
-[Concerns From Code Walkthrough.pdf](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/files/11657807/Concerns.From.Code.Walkthrough.pdf)
+[Concerns From Code Walkthrough.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657807/Concerns.From.Code.Walkthrough.pdf)
 
 
 # For More Information Check Out Our Whitepaper!
-[Whitepaper-ETH Smart Contracts for Infrastructure Funding.pdf](https://github.com/jlouis2k4/cs46x-eth-smart-contracts-scaffolding/files/11657782/Whitepaper-ETH.Smart.Contracts.for.Infrastructure.Funding.pdf)
+[Whitepaper-ETH Smart Contracts for Infrastructure Funding.pdf](https://github.com/KnoxSamuel/cs46x-eth-smart-contracts-scaffolding/files/11657782/Whitepaper-ETH.Smart.Contracts.for.Infrastructure.Funding.pdf)
